@@ -1,6 +1,6 @@
 {
   "name": "@qql2/remark-obsidian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse md with obsidian format to mdast.",
   "main": "main.js",
   "scripts": {
