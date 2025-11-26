@@ -15,6 +15,7 @@ interface EmbedNode extends Node {
 /**
  * Remark plugin to parse Obsidian embedding formats:
  * - ![[filename]] - Wikilink embedding (parsed from text nodes)
+ * - ![[link|altname]] - Wikilink embedding with alt text
  * - ![alt](url) - Image embedding (converted from image nodes)
  */
 export const remarkObsidian: Plugin = function () {
@@ -122,12 +123,21 @@ export const remarkObsidian: Plugin = function () {
         // Create embed node for wikilink with position
         const embedStartPos = calculatePosition(textPosition, start);
         const embedEndPos = calculatePosition(textPosition, end);
+
+        // Parse wikilink content: extract target and optional alt text
+        // Format: ![[target]] or ![[target|alt]]
+        const content = match[1];
+        const pipeIndex = content.indexOf("|");
+        const target = pipeIndex === -1 ? content : content.slice(0, pipeIndex);
+        const alt = pipeIndex === -1 ? undefined : content.slice(pipeIndex + 1);
+
         const embedNode: EmbedNode = {
           type: "obsidianEmbed",
           value: match[0],
           data: {
             embedType: "wikilink",
-            target: match[1],
+            target,
+            ...(alt && { alt }),
           },
           position: {
             start: embedStartPos,

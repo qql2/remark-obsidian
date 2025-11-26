@@ -48,6 +48,11 @@ const testCases: TestCase[] = [
     file: "test5.md",
     description: "Edge Cases",
   },
+  {
+    name: "test6",
+    file: "test6.md",
+    description: "Wikilink with Alt Text",
+  },
 ];
 
 function runTest(testCase: TestCase) {
