@@ -1,16 +1,25 @@
 {
-  "name": "",
+  "name": "@qql2/remark-obsidian",
   "version": "1.0.0",
-  "description": "",
+  "description": "Parse md with obsidian format to mdast.",
   "main": "main.js",
   "scripts": {
-  	"dev": "node esbuild.config.mjs",
-  	"build": "tsc -skipLibCheck && node esbuild.config.mjs production",
-  	"pub": "npm run build & npm publish"
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -skipLibCheck && node esbuild.config.mjs production",
+    "pub": "npm run build & npm publish",
+    "test": "tsx test/test-runner.ts"
   },
   "author": "qql2",
   "types": "main.d.ts",
-  "devDependencies":{
-    "esbuild": "0.21.5"
+  "dependencies": {
+    "unified": "^11.0.0",
+    "unist-util-visit": "^5.0.0",
+    "remark": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/unist": "^3.0.0",
+    "@types/node": "^20.0.0",
+    "esbuild": "0.21.5",
+    "tsx": "^4.0.0"
   }
 }
