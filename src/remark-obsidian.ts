@@ -2,7 +2,7 @@ import { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 import { Node } from "unist";
 
-interface EmbedNode extends Node {
+export interface EmbedNode extends Node {
   type: "obsidianEmbed";
   value: string;
   data?: {

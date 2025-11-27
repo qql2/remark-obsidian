@@ -1,11 +1,11 @@
 {
   "name": "@qql2/remark-obsidian",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Parse md with obsidian format to mdast.",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
-    "build": "tsc -skipLibCheck && node esbuild.config.mjs production",
+    "build": "rollup -c rollup.config.mjs && node esbuild.config.mjs production",
     "pub": "npm run build & npm publish",
     "test": "tsx test/test-runner.ts"
   },
@@ -23,6 +23,8 @@
     "@types/node": "^20.0.0",
     "@types/unist": "^3.0.0",
     "esbuild": "0.21.5",
+    "rollup": "^4.53.3",
+    "rollup-plugin-dts": "^6.3.0",
     "tsx": "^4.0.0",
     "typescript": "^5.9.3"
   }
