@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
-    "build": "tsc -skipLibCheck && node esbuild.config.mjs production",
+    "build": "tsc -skipLibCheck && mv remark-obsidian.d.ts main.d.ts && node esbuild.config.mjs production",
     "pub": "npm run build & npm publish",
     "test": "tsx test/test-runner.ts"
   },

@@ -5,11 +5,13 @@
     "module": "commonjs",
     "declaration": true,
     "emitDeclarationOnly": true,
-    "outFile": "./main.js",
+    "outDir": "./",
+    "rootDir": "./src",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src/remark-obsidian.ts"]
+  "include": ["src/remark-obsidian.ts"],
+  "exclude": []
 }
